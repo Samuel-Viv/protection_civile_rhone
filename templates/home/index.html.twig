@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
+
+{% include '/_partials/header.html.twig'%}
 
 <div class="container my-5">
     <div class="row">
@@ -11,4 +13,6 @@
     
     </div>
 </div>
+
+{% include '/_partials/footer.html.twig'%}
 {% endblock %}
