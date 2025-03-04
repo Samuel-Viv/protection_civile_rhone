@@ -1,3 +1,20 @@
-body {
-    background-color: skyblue;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+h2, label{
+    font-size: 24px ;
+    font-family: "Montserrat", serif;
+    color: #034583;
+}
+
+h1{
+    font-size: 32px !important;
+    font-family: "Montserrat", serif;
+    color: #034583 !important;
+    
+}
+
+p{
+    font-size: 14px;
+    font-family: "Open Sans", serif;
 }
