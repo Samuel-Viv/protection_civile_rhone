@@ -29,6 +29,7 @@ class Category
         $this->articles = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +45,11 @@ class Category
         $this->name_category = $name_category;
 
         return $this;
+    }
+
+    public function __toString():string
+    {
+        return $this->getNameCategory();
     }
 
     /**

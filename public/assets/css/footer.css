@@ -1,0 +1,43 @@
+footer{
+    background-color: #034583;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.mail{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.mail:hover{
+    text-decoration: none;
+    color: #f78d20;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer h2{
+    color: #f78d20;
+}
+
+.social{
+    display: flex;
+    flex-direction: row;
+    gap: 31px;
+
+}
+
+.social a i {
+    font-size: 24px;
+    color: #ffffff;
+    margin-top: 12px;
+}
+
+.social a i:hover {
+    color: #f78d20;
+}

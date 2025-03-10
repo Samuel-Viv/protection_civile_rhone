@@ -18,7 +18,7 @@
                     {% if app.user %}
                     {% if 'ROLE_ADMIN' in app.user.roles %}
                     <li class="nav-item">
-                        <a href="{{ path('app_logout') }}" class="nav-link {% if app.request.get('_route') == 'app_logout' %}active{% endif %}">Adminitration</a>
+                        <a href="{{ path('admin') }}" class="nav-link {% if app.request.get('_route') == 'admin' %}active{% endif %}">Administration</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
