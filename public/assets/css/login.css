@@ -1,0 +1,59 @@
+main {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    padding: 20px;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/innondations.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+
+.container-form{
+    background: rgba(255, 255, 255, 0.75); /* Fond semi-transparent pour lisibilité */
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding:68px 20px 68px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Add space between items */
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Space between elements */
+    height: 100%; /* Full height of the container */
+    gap: 5px;
+}
+
+.button{
+    margin-top: 10px;
+    background-color: #0088cc !important; /* Couleur de fond */
+    border-color: #0088cc !important; /* Bordure */
+    border-radius: 4px !important;
+    color: #ffffff;
+}
+
+.button:hover{
+    margin-top: 10px;
+    background-color: #034583 !important; /* Couleur de fond */
+    border-color: #034583 !important; /* Bordure */
+    border-radius: 4px !important;
+    color: #ffffff;
+}
+

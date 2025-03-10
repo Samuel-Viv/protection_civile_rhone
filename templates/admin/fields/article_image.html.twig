@@ -1,0 +1,3 @@
+{% for image in field.value %}
+    <img src="{{ asset('uploads/images/' ~ image.imageName) }}" alt="Article Image" width="100">
+{% endfor %}
