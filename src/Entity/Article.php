@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use SebastianBergmann\Type\FalseType;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
@@ -56,6 +57,9 @@ class Article
 
     #[ORM\Column]
     private ?bool $isPublished = false;
+
+    #[ORM\Column]
+    private ?bool $isFeatured = false;
 
 
 
@@ -233,6 +237,18 @@ class Article
     public function setIsPublished(bool $isPublished): self
     {
         $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function isFeatured(): ?bool
+    {
+        return $this->isFeatured;
+    }
+
+    public function setIsFeatured(bool $isFeatured): static
+    {
+        $this->isFeatured = $isFeatured;
 
         return $this;
     }
