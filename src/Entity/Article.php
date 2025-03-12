@@ -7,7 +7,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use SebastianBergmann\Type\FalseType;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
@@ -163,11 +162,11 @@ class Article
     #[ORM\PrePersist]
     public function setCreatedAtValue(): void
     {
-        $this->created_at = new \DateTimeImmutable();
-        $this->updated_at = new \DateTimeImmutable();
+        $now = new \DateTimeImmutable();
+        $this->created_at = $now;
+        $this->updated_at = $now;
     }
 
-    // Méthode appelée avant chaque mise à jour en base de données
     #[ORM\PreUpdate]
     public function setUpdatedAtValue(): void
     {
@@ -252,6 +251,4 @@ class Article
 
         return $this;
     }
-
- 
 }
