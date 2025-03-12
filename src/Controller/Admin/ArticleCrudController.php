@@ -69,6 +69,8 @@ class ArticleCrudController extends AbstractCrudController
                 ->onlyOnDetail(),
             
             BooleanField::new('isPublished', 'Publié'),
+            
+            BooleanField::new('isFeatured', 'En avant'),
         ];
     }
 }
