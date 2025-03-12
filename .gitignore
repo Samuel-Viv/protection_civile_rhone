@@ -21,7 +21,6 @@
 
 ###> symfony/asset-mapper ###
 
-/public/uploads/images/*
 /public/uploads/videos/*
 /assets/vendor/
 ###< symfony/asset-mapper ###
