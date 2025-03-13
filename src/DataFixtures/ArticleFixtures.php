@@ -46,7 +46,7 @@ class ArticleFixtures extends Fixture
 
             // Ajout d'une image associée
             $articleImage = new ArticleImage();
-            $imageName = 'groupe_protec.jpg';
+            $imageName = 'camion.jpg';
             $articleImage->setImageName($imageName)
                 ->setArticle($article)
                 ->setUpdatedAt(new \DateTimeImmutable());

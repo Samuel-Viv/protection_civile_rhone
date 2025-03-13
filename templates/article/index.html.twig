@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('assets/css/article.css') }}">
+<main>
+    {% include '/_partials/header.html.twig' %}
+
+    <div class="container container-article my-4">
+        <h1 class="text-center">Articles</h1>
+
+        <div class="block">
+             <!-- Navigation des catégories -->
+        <nav class="mb-4 mt-4">
+            <ul class="nav nav-pills">
+                {% for cat in categories %}
+                <li class="nav-li">
+                    <a href="{{ path('app_articles', { id: cat.id }) }}" class="{% if selectedCategory and selectedCategory.id == cat.id %}active{% endif %}">
+                        {{ cat.nameCategory }}
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </nav>
+
+        </div>
+     
+
+        <!-- Liste des articles -->
+        <div class="row">
+            {% for item in articles %}
+            <div class="card-item col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="card my-1 ">
+                    <img src="{{ asset('uploads/images/' ~ item.image) }}" class="card-img-top"
+                        alt="{{ item.article.title }}" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.article.title }}</h5>
+                        <p class="card-text">{{ item.article.content|slice(0, 175) }}...</p>
+
+                        <div class="button">
+                            <a href="#" class="btn ">Lire la suite</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <p>Aucun article trouvé pour cette catégorie.</p>
+            {% endfor %}
+        </div>
+    </div>
+    {% include '/_partials/footer.html.twig' %}
+</main>
+
+
+{% endblock %}
