@@ -1,0 +1,93 @@
+main{
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Prend toute la hauteur de l'écran */
+
+}
+
+main::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/rando.jpg);
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+
+.container-article{
+    background-color: #ffffffc1;     
+    padding: 32px 24px 32px 24px;
+    border-radius: 30px;
+
+}
+
+
+
+.nav-pills{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0rem 1rem;
+}
+
+.nav-li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #034583;
+    font-size: 24px;
+    font-weight: medium;
+}
+
+.nav-li a.active{
+    color: #f78d20 !important;
+}
+
+
+.card-img-top{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.button{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.button a{
+    color: #ffffff;
+    background-color: #0088cc;
+    border-color: #0088cc;
+    border-radius: 4px;
+    padding: 5px 12px;
+}
+
+.button a:hover{
+    color: #ffffff;
+    background-color: #034583;
+    border-color: #034583;
+    border-radius: 4px;
+    padding: 5px 12px;
+}
+
+.nav-li a:hover {
+    color: #f78d20; /* Couleur au survol */
+}
+
+/* Assure que la bordure et la taille sont respectées sur mobile */
+@media (max-width: 767px) {
+    .container-article {
+        padding: 10px; /* Réduit l'espace intérieur sur mobile */
+        max-width: 95%; /* Permet au container d'occuper 95% de la largeur de l'écran */
+    }
+}

@@ -61,10 +61,3 @@ main::before{
     border-radius: 4px;
     padding: 5px 12px;
 }
-
-.cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Espace entre les cartes */
-}
