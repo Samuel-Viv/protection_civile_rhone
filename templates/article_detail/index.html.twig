@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('assets/css/article-detail.css') }}">
+
+<main>
+    {% include '/_partials/header.html.twig' %}
+
+    <!--Container Article-->
+    <div class="container container-article my-4">
+        <h1 class="text-center mb-4">{{ article.title }}</h1>
+
+
+        <!-- Carrousel Images -->
+        {% if images is not empty %}
+        <div class="carousel-container">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+                <!-- Indicateurs -->
+                <ol class="carousel-indicators">
+                    {% for image in images %}
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ loop.index0 }}"
+                        class="{% if loop.first %}active{% endif %}">
+                        <span class="visually-hidden"></span>
+                    </li>
+                    {% endfor %}
+                </ol>
+
+                <!-- Images -->
+                <div class="carousel-inner">
+                    {% for image in images %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <img src="{{ asset('uploads/images/' ~ image.imagename) }}" class="d-block w-100" alt="Image">
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Boutons de navigation -->
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </a>
+
+            </div>
+        </div>
+        {% endif %}
+
+
+        <!--Content-->
+        <div class="content">
+            <p>{{ article.content }}</p>
+        </div>
+
+        <!--Vidéo-->
+        <div class="container-video">
+        {% if article.urlVideo %}
+        <iframe width="640" height="320" class="col-10 col-md-8 col-lg-6"
+            src="https://www.youtube.com/embed/{{ article.urlVideo | split('?v=') | last }}" frameborder="0"
+            allowfullscreen>
+        </iframe>
+        {% elseif article.fileVideo %}
+        <video width="560" height="315" controls>
+            <source src="{{ asset('uploads/videos/' ~ article.fileVideo) }}" type="video/mp4">
+        </video>
+        {% endif %}
+    </div>
+
+        <!--Auteur et date-->
+
+        <div class="author-date">
+            <p>Publié par {{ article.author }} le {{ article.createdAt | date('d/m/Y') }} </p>
+            {% if article.updatedAt != article.createdAt %}
+            <p>, Modifié le {{ article.updatedAt | date('d/m/Y') }}.</p>
+            {% endif %}
+        </div>
+
+
+    </div>
+
+    {% include '/_partials/footer.html.twig' %}
+</main>
+
+
+{% endblock %}
