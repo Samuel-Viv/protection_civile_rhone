@@ -23,7 +23,7 @@
                                 <p class="card-text">{{ item.article.content|slice(0, 175) }}...</p>
 
                                 <div class="button">
-                                    <a href="#" class="btn ">Lire la suite</a>
+                                    <a href="{{ path('app_article_detail', { id: item.article.id }) }}" class="btn ">Lire la suite</a>
                                 </div>
 
                             </div>

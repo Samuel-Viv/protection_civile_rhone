@@ -17,26 +17,34 @@ final class ArticleController extends AbstractController
     public function index(CategoryRepository $categoryRepository, ArticleRepository $articleRepository, ?Category $category): Response
     {
         $categories = $categoryRepository->findAll();
-
-         // Sélectionner la première catégorie par défaut si aucune n'est fournie
-    if (!$category && !empty($categories)) {
-        $category = $categories[0]; // Prend la première catégorie
-    }
-
-
-        $articles = $category ? $category->getArticles() : [];
-
-        $articlesWithImages = [];
-        foreach ($articles as $article) {
-           $images = $article->getArticleImages();
-           $firstImage = !$images->isEmpty() ? $images->first()->getImageName() : null;
-
-           $articlesWithImages[] = [
-               'article' => $article,
-               'image' => $firstImage,
-           ];
+    
+        // Sélectionner la première catégorie par défaut si aucune n'est fournie
+        if (!$category && !empty($categories)) {
+            $category = $categories[0];
         }
-
+    
+        $articles = $category ? $category->getArticles() : [];
+        $publishedArticles = []; 
+    
+        // Filtrer les articles publiés
+        foreach ($articles as $article) {
+            if ($article->isPublished() === true) {
+                $publishedArticles[] = $article;
+            }
+        }
+    
+        // Préparer les articles avec images
+        $articlesWithImages = [];
+        foreach ($publishedArticles as $article) {
+            $images = $article->getArticleImages();
+            $firstImage = !$images->isEmpty() ? $images->first()->getImageName() : null;
+    
+            $articlesWithImages[] = [
+                'article' => $article,
+                'image' => $firstImage,
+            ];
+        }
+    
         return $this->render('article/index.html.twig', [
             'categories' => $categories,
             'articles' => $articlesWithImages,

@@ -46,7 +46,7 @@ class Article
     private ?string $file_video = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $autor = null;
+    private ?string $author = null;
 
     /**
      * @var Collection<int, ArticleImage>
@@ -186,14 +186,14 @@ class Article
     }
 
 
-    public function getAutor(): ?string
+    public function getAuthor(): ?string
     {
-        return $this->autor;
+        return $this->author;
     }
 
-    public function setAutor(string $autor): static
+    public function setAuthor(string $author): static
     {
-        $this->autor = $autor;
+        $this->author = $author;
 
         return $this;
     }

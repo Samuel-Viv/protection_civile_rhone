@@ -59,7 +59,7 @@ class ArticleCrudController extends AbstractCrudController
             ->setEntryType(ArticleImageType::class)
             ->setTemplatePath('admin/fields/article_image.html.twig'),
                 
-            TextField::new('autor')
+            TextField::new('author')
             ->setLabel('Auteur'),
 
             DateTimeField::new('created_at', 'Créé le ')
