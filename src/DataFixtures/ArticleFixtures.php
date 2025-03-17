@@ -30,7 +30,7 @@ class ArticleFixtures extends Fixture
             $article = new Article();
             $article->setTitle($faker->sentence(6))
                 ->setContent($faker->paragraph(10))
-                ->setAutor($faker->name())
+                ->setAuthor($faker->name())
                 ->setIsPublished($i < 5)
                 ->setIsFeatured($i < 5)
                 ->setUrlVideo($faker->boolean() ? $faker->url() : null)
