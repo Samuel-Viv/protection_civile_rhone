@@ -13,16 +13,42 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Validator\Constraints\File;
 use App\Form\ArticleImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use phpDocumentor\Reflection\Types\Boolean;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class ArticleCrudController extends AbstractCrudController
 {
     use  Trait\ReadOnlyTrait;
+    
+    private UrlGeneratorInterface $urlGenerator;
+
+    public function __construct(UrlGeneratorInterface $urlGenerator)
+    {
+        $this->urlGenerator = $urlGenerator;
+    }
 
     public static function getEntityFqcn(): string
     {
         return Article::class;
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+        $previewAction = Action::new('preview', 'Aperçu de l\'articel', 'fa fa-external-link')
+            ->linkToUrl(function (Article $article) {
+                return $this->urlGenerator->generate('app_article_detail', ['id' => $article->getId()]);
+            })
+            ->setHtmlAttributes(['target' => '_blank']);
+    
+        return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
+            ->add(Crud::PAGE_INDEX, $previewAction)
+            ->add(Crud::PAGE_DETAIL, $previewAction)
+            ->update(Crud::PAGE_INDEX, Action::EDIT, fn (Action $action) => $action)
+            ->update(Crud::PAGE_INDEX, Action::DELETE, fn (Action $action) => $action);
     }
 
     public function configureFields(string $pageName): iterable
