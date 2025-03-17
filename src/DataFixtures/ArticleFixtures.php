@@ -8,7 +8,7 @@ use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 class ArticleFixtures extends Fixture
 {
