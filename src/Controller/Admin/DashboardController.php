@@ -43,5 +43,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Articles', 'fa fa-newspaper-o', Article::class);
         yield MenuItem::section('Aide');
+        yield MenuItem::linktoRoute('Création', 'fa fa-question', 'app_help_new');
+        yield MenuItem::linktoRoute('Editer', 'fa fa-question', 'app_help_modif');
+        yield MenuItem::linktoRoute('Détails', 'fa fa-question', 'app_help_show');
     }
 }
