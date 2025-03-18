@@ -1,6 +1,6 @@
-Projet de site interne pour la protection civil du Rhone.
+<h1>Projet de site interne pour la protection civil du Rhone.</h1>
 
-1/ Prérequis:
+<h2>1/ Prérequis: </h2>
 
 Composer
 Xampp
