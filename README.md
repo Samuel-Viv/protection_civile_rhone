@@ -10,7 +10,7 @@ Symfony (version 5)
 
 <h2>2/ Installation:</h2>
 
-Créer un répertoire "procetion_civile" dans le répertoire "htdocs" dans xampp. Dans VsCode ouvrer votre répertoire "protection_civile" et taper dans le terminal 'cd <nom du répertoire>' ensuite 'git clone https://github.com/Samuel-Viv/protection_civile_rhone.git 'afin de télécharger le projet. Taper ensuite dans le terminal 'composer install' Installation de la base de donnée taper:
+Créer un répertoire "procetion_civile" dans le répertoire "htdocs" dans xampp. Dans VsCode ouvrer votre répertoire "protection_civile" et taper dans le terminal 'cd <nom du répertoire>' ensuite '<em>git clone https://github.com/Samuel-Viv/protection_civile_rhone.git </em>'afin de télécharger le projet. Taper ensuite dans le terminal 'composer install' Installation de la base de donnée taper:
 </br>
 <em>php bin/console doctrine:database:create</em>
 </br>
