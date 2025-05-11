@@ -12,7 +12,7 @@ main::before{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(../images/rando.jpg);
+    background-image: url(../images/rando.webp);
     background-size: cover;
     background-position: center;
     position: fixed;
@@ -40,7 +40,6 @@ main::before{
 
 .nav-li a{
     text-decoration: none;
-    text-transform: uppercase;
     color: #034583;
     font-size: 24px;
     font-weight: medium;
