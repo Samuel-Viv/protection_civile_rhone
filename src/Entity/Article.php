@@ -60,6 +60,9 @@ class Article
     #[ORM\Column]
     private ?bool $isFeatured = false;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $isWelcome = false;
+
 
 
     public function __construct()
@@ -249,6 +252,17 @@ class Article
     {
         $this->isFeatured = $isFeatured;
 
+        return $this;
+    }
+
+    public function isWelcome(): bool
+    {
+        return $this->isWelcome;
+    }
+
+    public function setIsWelcome(bool $isWelcome): self
+    {
+        $this->isWelcome = $isWelcome;
         return $this;
     }
 }

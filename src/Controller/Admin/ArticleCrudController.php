@@ -97,6 +97,7 @@ class ArticleCrudController extends AbstractCrudController
             BooleanField::new('isPublished', 'Publié'),
             
             BooleanField::new('isFeatured', 'En avant'),
+            BooleanField::new('isWelcome', 'Article à mettre en premier'),
         ];
     }
 }
