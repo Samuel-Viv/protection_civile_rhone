@@ -9,3 +9,5 @@ services:
       MARIADB_PASSWORD: B8gt5k98c!
     volumes:
       - ./data/db:/var/lib/mysql
+    ports:
+      - "3306:3306"
