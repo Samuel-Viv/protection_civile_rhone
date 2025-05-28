@@ -22,7 +22,9 @@ services:
     ports:
       - "8085:80"
   php:
-    image: php:8.4-fpm
+    build:
+      context: .
+      dockerfile: infra/php.Dockerfile
     container_name: php-fpm
     volumes:
       - ./:/var/www/html
