@@ -18,6 +18,8 @@ services:
       - ./:/var/www/html
     depends_on:
       - php
+    ports:
+      - "80:8085"
   php:
     image: php:8.4-fpm
     container_name: php-fpm
