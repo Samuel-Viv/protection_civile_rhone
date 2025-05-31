@@ -24,3 +24,7 @@
 /public/uploads/videos/*
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+
+# Docker data
+/data
