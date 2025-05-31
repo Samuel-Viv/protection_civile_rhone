@@ -5,7 +5,8 @@ framework:
     # Note that the session will be started ONLY if you read or write from it.
     session: true
     csrf_protection: ~
-    trusted_proxies: '%env(TRUSTED_PROXIES)%'
+    trusted_proxies: 'private_ranges'
+    trusted_headers: ['forwarded']
 
     #esi: true
     #fragments: true
